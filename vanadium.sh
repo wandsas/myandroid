@@ -8,8 +8,13 @@ git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 export PATH=$HOME/chromium/depot_tools:$PATH
 
 # vanadium
-git clone git://github.com/GrapheneOS/Vanadium.git vanadium
-cd vanadium
+if [ ! -d ~/chromium/vanadium ]; then
+    git clone git://github.com/GrapheneOS/Vanadium.git vanadium
+    cd vanadium
+else
+    cd vanadium
+    git pull origin master
+fi
 fetch --nohooks android
 cd src
 echo "target_os = [ 'android' ]" >> ../.gclient
