@@ -13,7 +13,7 @@ if [ -d $HOME/android ]; then
 fi
 # android-studio
 if [ -d $HOME/android/studio ]; then
-    PATH=$HOME/android/studio:$PATH
+    PATH=$HOME/android/studio/bin:$PATH
 fi
 # chromium
 if [ -d $HOME/chromium/depot_tools ]; then
