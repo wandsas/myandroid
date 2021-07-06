@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 [ -d ~/chromium ] || mkdir -p ~/chromium
 cd ~/chromium
 
@@ -8,7 +7,7 @@ cd ~/chromium
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 export PATH=$HOME/chromium/depot_tools:$PATH
 
-# Vanadium
+# vanadium
 git clone git://github.com/GrapheneOS/Vanadium.git vanadium
 cd vanadium
 fetch --nohooks android

@@ -7,4 +7,4 @@ echo 'f2f82744e735eae43fa018a77254c398a3bab5371f09973a37483014b73b7597 android-s
 bsdtar xvf android-studio-ide-193.6626763-linux.tar.gz
 rm android-studio-ide-193.6626763-linux.tar.gz
 mv android-studio studio
-export PATH:$PATH:$HOME/android/studio/bin
+export PATH=$HOME/android/studio/bin:$PATH
