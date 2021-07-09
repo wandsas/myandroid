@@ -31,7 +31,6 @@ bsdtar xvf commandlinetools-linux-7302050_latest.zip
 rm commandlinetools-linux-7302050_latest.zip
 mv cmdline-tools latest
 PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-sdkmanager 'cmdline-tools;latest'
 
 # 2. Install platform-tools
 sdkmanager platform-tools
