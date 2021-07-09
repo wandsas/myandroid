@@ -9,12 +9,10 @@ sudo apt-get -y install openjdk-17-jdk curl zip unzip bison flex \
     libssl-dev xz-utils bash-completion git python3 gpg rsync \
     diffutils ncurses-base ncurses-bin openssl signify-openbsd \
     libpulse0 libxcb-xinerama0 make gcc automake pkg-config \
-    autoconf automake
+    autoconf automake libarchive-tools
 pip install protobuf
 
-[ -d $ANDROID_HOME ] || install -m 755 -d $ANDROID_HOME
-
-# Install android's repo command.
+# 0. Install android's repo command.
 if [ ! -f ~/bin/repo ]; then
   curl -fLo ~/bin/repo --create-dirs \
     https://storage.googleapis.com/git-repo-downloads/repo 
@@ -27,7 +25,7 @@ PATH=~/bin:$PATH
 cd $ANDROID_HOME/cmdline-tools
 curl -O https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
 echo '7a00faadc0864f78edd8f4908a629a46d622375cbe2e5814e82934aebecdb622 commandlinetools-7302050_latest.zip' | sha256sum -c
-unzip commandlinetools-linux-7302050_latest.zip
+bsdtar xvf commandlinetools-linux-7302050_latest.zip
 rm commandlinetools-linux-7302050_latest.zip
 mv tools latest
 PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
