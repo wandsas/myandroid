@@ -18,6 +18,7 @@ if [ -d  "$HOME/android/sdk/ndk-bundle" ]; then
   export ANDROID_AVD_HOME=$HOME/.android/avd
   export LD_LIBRARY_PATH=$HOME/android/sdk/emulator/lib64:$LD_LIBRARY_PATH
   export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
+fi
 
 # android-studio
 if [ -d $HOME/android/studio ]; then
