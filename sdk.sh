@@ -15,11 +15,12 @@ pip install protobuf
 [ -d $ANDROID_HOME ] || install -m 755 -d $ANDROID_HOME
 
 # Install android's repo command.
-if [ ! -d $ANDROID_HOME/bin ]; then
-    curl -fLOs $ANDROID_HOME/bin/repo --create-dirs \
+if [ ! -d ~/bin ]; then
+    curl -fLOs ~/bin/repo --create-dirs \
         https://storage.googleapis.com/git-repo-downloads/repo-1
-    chmod a+x $ANDROID_HOME/bin/repo
+    chmod a+x ~/bin/repo
 fi
+PATH=~/bin:$PATH
 
 # 1. Install cmdline-tools
 [ -d $ANDROID_HOME/cmdline-tools ] || mkdir -p $ANDROID_HOME/cmdline-tools
@@ -29,20 +30,21 @@ echo '7a00faadc0864f78edd8f4908a629a46d622375cbe2e5814e82934aebecdb622 commandli
 unzip commandlinetools-linux-7302050_latest.zip
 rm commandlinetools-linux-7302050_latest.zip
 mv tools latest
-export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 sdkmanager 'cmdline-tools;latest'
 
 # 2. Install platform-tools
 sdkmanager platform-tools
-export PATH=$ANDROID_HOME/platform-tools:$PATH
+PATH=$ANDROID_HOME/platform-tools:$PATH
 
 # 3. Install build-tools
 sdkmanager 'build-tools;30.0.3'
-export PATH=$HOME/android/sdk/build-tools/30.0.3:$PATH
+PATH=$HOME/android/sdk/build-tools/30.0.3:$PATH
 
 # 4. Install ndk-bundle
 sdkmanager ndk-bundle
-export PATH=$ANDROID_HOME/ndk-bundle:$PATH
+PATH=$ANDROID_HOME/ndk-bundle:$PATH
+export PATH
 
 # Update everything.
 sdkmanager --update
