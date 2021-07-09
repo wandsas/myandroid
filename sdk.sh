@@ -16,9 +16,10 @@ pip install protobuf
 
 # Install android's repo command.
 if [ ! -f ~/bin/repo ]; then
-    curl -fLOs ~/bin/repo --create-dirs \
-        https://storage.googleapis.com/git-repo-downloads/repo 
-    chmod a+x ~/bin/repo
+  [-d ~/bin ] || mkdir ~/bin
+  curl -fLOs ~/bin/repo --create-dirs \
+    https://storage.googleapis.com/git-repo-downloads/repo 
+  chmod a+x ~/bin/repo
 fi
 PATH=~/bin:$PATH
 
