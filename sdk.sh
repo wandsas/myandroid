@@ -6,10 +6,10 @@ export ANDROID_HOME=$HOME/android/sdk
 sudo apt-get update
 sudo apt-get -y dist-upgrade
 sudo apt-get -y install openjdk-17-jdk curl zip unzip bison flex \
-    libssl-dev xzutils bash-completion git python3 gpg rsync \
+    libssl-dev xz-utils bash-completion git python3 gpg rsync \
     diffutils ncurses-base ncurses-bin openssl signify-openbsd \
     libpulse0 libxcb-xinerama0 make gcc automake pkg-config \
-    autoconf automake xz-utils
+    autoconf automake
 pip install protobuf
 
 [ -d $ANDROID_HOME ] || install -m 755 -d $ANDROID_HOME
@@ -30,7 +30,7 @@ unzip commandlinetools-linux-7302050_latest.zip
 rm commandlinetools-linux-7302050_latest.zip
 mv tools latest
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-#sdkmanager 'cmdline-tools;latest'
+sdkmanager 'cmdline-tools;latest'
 
 # 2. Install platform-tools
 sdkmanager platform-tools
