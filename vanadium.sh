@@ -1,14 +1,12 @@
 #!/bin/bash
 
-[ -d ~/chromium ] || mkdir -p ~/chromium
-cd ~/chromium
-
 # depot_tools
-git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-export PATH=$HOME/chromium/depot_tools:$PATH
+git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
+  $HOME/android/depot_tools
+export PATH=$HOME/android/depot_tools:$PATH
 
 # vanadium
-if [ ! -d ~/chromium/vanadium ]; then
+if [ ! -d vanadium ]; then
     git clone git://github.com/GrapheneOS/Vanadium.git vanadium
     cd vanadium
 else
