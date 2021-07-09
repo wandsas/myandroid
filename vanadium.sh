@@ -25,4 +25,4 @@ gn args out/Default
 
 # get other build targets gn ls out/Default
 # //chrome/test:unit_tests use autoninja -C out/Default chrome/test:unit_tests
-autoninja -C out/Default chrome_public_apk
+# autoninja -C out/Default chrome_public_apk
