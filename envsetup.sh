@@ -34,12 +34,9 @@ if [ -d $HOME/android/studio ]; then
     PATH=$HOME/android/studio/bin:$PATH
 fi
 # chromium depot_tools
-if [ -d ~/android/depot_tools ]; then
-  cd ~/android/depot_tools
-  git pull origin master
-else
-  cd ~/android
-  git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+if [ ! -d ~/android/depot_tools ]; then
+  git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
+    ~/android/depot_tools
 fi
 PATH=$HOME/android/depot_tools:$PATH
 export PATH
