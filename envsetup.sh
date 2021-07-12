@@ -3,6 +3,9 @@ export JAVA_HOME=${1:-/usr/lib/jvm/java-1.17.0-openjdk-amd64}
 export JAVA_OPTIONS="-Xms1024m -Xmx2048m -XX:-UsePerfData $JAVA_OPTIONS"
 export QT_DEBUG_PLUGINS=1
 
+# Clean and init local user path first
+[ -f ~/.profile ] && source .profile
+
 # repo cmd
 if [ ! -r ~/bin/repo ]; then
   curl -fLo ~/bin/repo --create-dirs \
