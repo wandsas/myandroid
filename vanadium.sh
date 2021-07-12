@@ -1,16 +1,22 @@
 #!/bin/bash
 
 # depot_tools
-git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
-  $HOME/android/depot_tools
-export PATH=$HOME/android/depot_tools:$PATH
+if [ ! -d ~/android/depot_tools ]; then
+  cd ~/android
+  git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+else
+  cd ~/android/depot_tools
+  git pull origin master
+  cd ..
+fi
+PATH=$HOME/android/depot_tools:$PATH
 
 # vanadium
 if [ ! -d vanadium ]; then
     git clone git://github.com/GrapheneOS/Vanadium.git vanadium
-    cd vanadium
+    cd ~/vanadium
 else
-    cd vanadium
+    cd ~/vanadium
     git pull origin master
 fi
 fetch --nohooks android
