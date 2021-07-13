@@ -36,6 +36,10 @@ if [ -d "~/.android/avd" ]; then
 fi
 # studio
 if [ -d $HOME/android/studio ]; then
-    PATH=$HOME/android/studio/bin:$PATH
+  PATH=$HOME/android/studio/bin:$PATH
+fi
+# maven
+if [ -d $HOME/build/apache-maven ]; then
+  PATH=$HOME/apache-maven/bin:$PATH
 fi
 export PATH
