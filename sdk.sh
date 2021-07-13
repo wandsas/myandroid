@@ -1,6 +1,7 @@
 #!/bin/sh
 
 export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/openjdk-17}
+export JAVA_OPTIONS="-Xms1024m -Xmx2048m -XX:-UsePerfData $JAVA_OPTIONS"
 export ANDROID_HOME=$HOME/android/sdk
 
 sudo apt-get update

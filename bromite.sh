@@ -1,17 +1,7 @@
 #!/bin/bash
 
-[ -d ~/chromium ] || mkdir -p ~/chromium
-cd ~/chromium
-
 # depot_tools
-if [ ! -d ~/chromium/depot_tools ]; then
-    git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-else
-    cd depot_tools
-    git pull origin master
-    cd ..
-fi
-export PATH=$HOME/chromium/depot_tools:$PATH
+. depot_tools.sh
 
 # bromite
 if [ ! -d ~/chromium/bromite ]; then
@@ -29,7 +19,5 @@ gclient sync
 build/install-build-deps-android.sh
 gclient runhooks
 gn args out/Default
-
-# get other build targets gn ls out/Default
-# //chrome/test:unit_tests use autoninja -C out/Default chrome/test:unit_tests
-autoninja -C out/Default chrome_public_apk
+# autoninja -C out/Default chrome/test:unit_tests
+# autoninja -C out/Default chrome_public_apk

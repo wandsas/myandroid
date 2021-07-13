@@ -3,13 +3,10 @@
 . depot_tools.sh
 
 # vanadium
-if [ ! -d vanadium ]; then
-    git clone git://github.com/GrapheneOS/Vanadium.git vanadium
-    cd ~/vanadium
-else
-    cd ~/vanadium
-    git pull origin master
+if [ ! -d ~/vanadium ]; then
+    git clone git://github.com/GrapheneOS/Vanadium.git ~/vanadium
 fi
+cd vanadium
 fetch --nohooks android
 cd src
 echo "target_os = [ 'android' ]" >> ../.gclient
