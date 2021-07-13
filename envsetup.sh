@@ -2,7 +2,7 @@
 
 [ -f ~/.profile ] && source .profile
 
-export JAVA_HOME=${1:-/usr/lib/jvm/java-1.17.0-openjdk-amd64}
+export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
 export JAVA_OPTIONS="-Xms1024m -Xmx2048m -XX:-UsePerfData $JAVA_OPTIONS"
 
   # repo cmd
