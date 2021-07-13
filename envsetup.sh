@@ -13,11 +13,11 @@ if [ ! -r ~/bin/repo ]; then
 fi
 PATH=~/bin:$PATH
 # depot_tools
-if [ ! -d ~/android/depot_tools ]; then
+if [ ! -d ~/build/depot_tools ]; then
   git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
-    ~/android/depot_tools
+    ~/build/depot_tools
 fi
-PATH=$HOME/android/depot_tools:$PATH
+PATH=$HOME/build/depot_tools:$PATH
 # android/sdk
 if [ -d $HOME/android/sdk ]; then
     export ANDROID_HOME=$HOME/android/sdk

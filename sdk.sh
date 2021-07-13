@@ -12,7 +12,6 @@ sudo apt-get -y install openjdk-17-jdk curl zip unzip bison flex \
     autoconf automake libarchive-tools gperf
 pip install protobuf
 
-# 0. Install android's repo command.
 if [ ! -f ~/bin/repo ]; then
   curl -fLo ~/bin/repo --create-dirs \
     https://storage.googleapis.com/git-repo-downloads/repo 

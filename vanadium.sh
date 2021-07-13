@@ -1,15 +1,6 @@
 #!/bin/bash
 
-# depot_tools
-if [ ! -d ~/android/depot_tools ]; then
-  cd ~/android
-  git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-else
-  cd ~/android/depot_tools
-  git pull origin master
-  cd ..
-fi
-PATH=$HOME/android/depot_tools:$PATH
+. depot_tools.sh
 
 # vanadium
 if [ ! -d vanadium ]; then
