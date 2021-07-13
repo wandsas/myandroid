@@ -42,4 +42,6 @@ fi
 if [ -L $HOME/build/apache-maven ]; then
   PATH=$HOME/build/apache-maven/bin:$PATH
 fi
+export M2_HOME=$HOME/build/apache-maven
+export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
 export PATH
