@@ -40,6 +40,6 @@ if [ -d $HOME/android/studio ]; then
 fi
 # maven
 if [ -L $HOME/build/apache-maven ]; then
-  PATH=$HOME/apache-maven/bin:$PATH
+  PATH=$HOME/build/apache-maven/bin:$PATH
 fi
 export PATH
