@@ -1,2 +1,0 @@
-
-. depot_tools.sh
