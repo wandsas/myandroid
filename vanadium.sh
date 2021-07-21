@@ -2,6 +2,15 @@
 
 . depot_tools.sh
 
+VANADIUM_HOME=$HOME/vanadium
+VANADIUM_CLIENTID
+VANADIUM_SYSTEM
+VANADIUM_ARCH
+VANADIUM_LIB
+VANADIUM_CONFIG
+VANADIUM_HOME=$HOME/.vanadium_chromium
+
+
 # vanadium
 if [ ! -d ~/vanadium ]; then
     git clone git://github.com/GrapheneOS/Vanadium.git ~/vanadium
