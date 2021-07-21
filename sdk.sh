@@ -13,17 +13,31 @@ sudo apt-get -y install openjdk-17-jdk curl zip unzip bison flex \
     autoconf automake libarchive-tools gperf
 pip install protobuf
 
-if [ ! -f ~/bin/repo ]; then
-  curl -fLo ~/bin/repo --create-dirs \
+if [ ! -f $HOME/bin/repo ]; then
+  curl -fLo $HOME/bin/repo --create-dirs \
     https://storage.googleapis.com/git-repo-downloads/repo 
   chmod a+x ~/bin/repo
 fi
 PATH=~/bin:$PATH
 
-[ -d $ANDROID_HOME ] || mkdir -p $ANDROID_HOME
+if [ -d $ANDROID_HOME ]; then
+  echo "Existing android-sdk $ANDROID_HOME found."
+  echo "Delete sdk and reinstall it? [Y/n]"
+  read YN
+  if [ ${YN} == 'n' ]; then
+    echo "Exiting."
+    exit 1
+  elif [ ${YN} == 'Y' ]; then
+     rm -rf $ANDROID_HOME
+     mkdir -p $ANDROID_HOME
+  else
+    echo "Unknown command ${YN}. Aborting."
+    exit 1
+  fi
+fi
 
 # 1. Install cmdline-tools
-[ -d $ANDROID_HOME/cmdline-tools ] || mkdir -p $ANDROID_HOME/cmdline-tools
+mkdir -p $ANDROID_HOME/cmdline-tools
 cd $ANDROID_HOME/cmdline-tools
 curl -O https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
 echo '7a00faadc0864f78edd8f4908a629a46d622375cbe2e5814e82934aebecdb622 commandlinetools-7302050_latest.zip' | sha256sum -c

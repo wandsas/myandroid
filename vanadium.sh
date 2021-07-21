@@ -3,23 +3,16 @@
 . depot_tools.sh
 
 VANADIUM_HOME=$HOME/vanadium
-VANADIUM_CLIENTID
-VANADIUM_SYSTEM
-VANADIUM_ARCH
-VANADIUM_LIB
-VANADIUM_CONFIG
-VANADIUM_HOME=$HOME/.vanadium_chromium
-
 
 # vanadium
-if [ ! -d ~/vanadium ]; then
-    git clone git://github.com/GrapheneOS/Vanadium.git ~/vanadium
+if [ ! -d $VANADIUM_HOME ]; then
+    git clone git://github.com/GrapheneOS/Vanadium.git $VANADIUM_HOME
 fi
-cd vanadium
+cd $VANADIUM_HOME
 fetch --nohooks android
 cd src
 echo "target_os = [ 'android' ]" >> ../.gclient
-gclient sync
+gclient sync -D --with_branch_heads --with_tags --jobs 12
 build/install-build-deps-android.sh
 gclient runhooks
 gn args out/Default

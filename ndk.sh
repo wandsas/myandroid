@@ -15,6 +15,3 @@ curl -LO https://dl.google.com/android/repository/android-ndk-r21e-linux-x86_64.
 bsdtar -xvf android-ndk-r21e-linux-x86_64.zip
 rm android-ndk-r21e-linux-x86_64.zip
 mv android-ndk-r21e ndk
-
-
-

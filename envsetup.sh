@@ -13,12 +13,13 @@ if [ ! -r ~/bin/repo ]; then
 fi
 PATH=~/bin:$PATH
 # depot_tools
-if [ ! -d ~/build/depot_tools ]; then
+if [ ! -d $HOME/android/depot_tools ]; then
   git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
-    ~/build/depot_tools
+    $HOME/android/depot_tools
 fi
-PATH=$HOME/build/depot_tools:$PATH
-# sdk
+PATH=$HOME/android/depot_tools:$PATH
+
+# android-sdk
 if [ -d $HOME/android/sdk ]; then
     export ANDROID_HOME=$HOME/android/sdk
     PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
@@ -39,9 +40,9 @@ if [ -d $HOME/android/studio ]; then
   PATH=$HOME/android/studio/bin:$PATH
 fi
 # maven
-if [ -L $HOME/build/apache-maven ]; then
-  PATH=$HOME/build/apache-maven/bin:$PATH
-  export M2_HOME=$HOME/build/apache-maven
+if [ -L $HOME/android/apache-maven ]; then
+  PATH=$HOME/android/apache-maven/bin:$PATH
+  export M2_HOME=$HOME/android/apache-maven
   #export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
 fi
 export PATH
