@@ -3,7 +3,7 @@
 [ -f ~/.profile ] && source .profile
 
 export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
-export JAVA_OPTIONS="-Xms1024m -Xmx2048m -XX:-UsePerfData $JAVA_OPTIONS"
+export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData $JAVA_OPTIONS"
 
   # repo cmd
 if [ ! -r ~/bin/repo ]; then
@@ -18,7 +18,7 @@ if [ ! -d ~/build/depot_tools ]; then
     ~/build/depot_tools
 fi
 PATH=$HOME/build/depot_tools:$PATH
-# android/sdk
+# sdk
 if [ -d $HOME/android/sdk ]; then
     export ANDROID_HOME=$HOME/android/sdk
     PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
@@ -28,7 +28,7 @@ if [ -d $HOME/android/sdk ]; then
     PATH=$ANDROID_HOME/emulator:$PATH
 fi
 # emulator
-if [ -d "~/.android/avd" ]; then
+if [ -d $HOME/.android/avd ]; then
   export ANDROID_AVD_HOME=$HOME/.android/avd
   export LD_LIBRARY_PATH=$HOME/android/sdk/emulator/lib64:$LD_LIBRARY_PATH
   export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
@@ -41,7 +41,7 @@ fi
 # maven
 if [ -L $HOME/build/apache-maven ]; then
   PATH=$HOME/build/apache-maven/bin:$PATH
+  export M2_HOME=$HOME/build/apache-maven
+  #export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
 fi
-export M2_HOME=$HOME/build/apache-maven
-export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
 export PATH
