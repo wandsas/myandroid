@@ -2,8 +2,9 @@
 
 [ -f ~/.profile ] && . ~/.profile
 
-export JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
-export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData $JAVA_OPTIONS"
+export JAVA_HOME=${HOME}/android/jdk-16
+PATH=${JAVA_HOME}/bin:${PATH}
+export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
 
   # repo cmd
 if [ ! -r ${HOME}/bin/repo ]; then
@@ -22,6 +23,7 @@ PATH=${HOME}/android/depot_tools:${PATH}
 # android-sdk
 if [ -d $HOME/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
+  export ANDROID_SDK_ROOT=${ANDROID_HOME}
   PATH=$ANDROID_HOME/cmdline-tools/latest/bin:${PATH}
   PATH=$ANDROID_HOME/platform-tools:${PATH}
   PATH=$ANDROID_HOME/build-tools/30.0.3:${PATH}
@@ -40,6 +42,7 @@ if [ -d $HOME/.android/avd ]; then
   export LD_LIBRARY_PATH=${HOME}/android/sdk/emulator/lib64:${LD_LIBRARY_PATH}
   export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
   export QT_DEBUG_PLUGINS=1
+  export QT_XCB_FORCE_SOFTWARE_OPENGL=1
 fi
 # studio
 if [ -d ${HOME}/android/studio ]; then
