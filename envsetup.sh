@@ -24,19 +24,13 @@ PATH=${HOME}/android/depot_tools:${PATH}
 if [ -d $HOME/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
   export ANDROID_SDK_ROOT=${ANDROID_HOME}
+  export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk-bundle
   PATH=$ANDROID_HOME/cmdline-tools/latest/bin:${PATH}
   PATH=$ANDROID_HOME/platform-tools:${PATH}
   PATH=$ANDROID_HOME/build-tools/30.0.3:${PATH}
   PATH=$ANDROID_HOME/ndk-bundle:${PATH}
   PATH=$ANDROID_HOME/emulator:${PATH}
 fi
-# android-ndk
-#if [ -d $HOME/android/sdk/ndk-bundle ]; then
-  #export NDK_PROJECT_PATH=${HOME}/src/orbot
-  #export NDK_APPLICATION_MK=${NDK_PROJECT_PATH}/src/main
-  #export APP_BUILD_SCRIPT=${NDK_APPLICATION_MK}/Android.mk
-  #export APP_PLATFORM=android23
-#fi
 # emulator
 if [ -d $HOME/.android/avd ]; then
   export ANDROID_AVD_HOME=${HOME}/.android/avd
