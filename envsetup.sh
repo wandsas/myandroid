@@ -2,7 +2,7 @@
 
 [ -f ~/.profile ] && . ~/.profile
 
-export JAVA_HOME=${HOME}/android/jdk-16
+export JAVA_HOME=${HOME}/android/jdk8
 PATH=${JAVA_HOME}/bin:${PATH}
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
 
