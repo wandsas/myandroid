@@ -2,7 +2,7 @@
 
 [ -f ~/.profile ] && . ~/.profile
 
-export JAVA_HOME=${HOME}/android/jdk8
+export JAVA_HOME=${HOME}/android/jdk16
 PATH=${JAVA_HOME}/bin:${PATH}
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
 
@@ -38,6 +38,7 @@ if [ -d $HOME/.android/avd ]; then
   export QT_QPA_PLATFORM_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/qt5/plugins
   export QT_DEBUG_PLUGINS=1
   export QT_XCB_FORCE_SOFTWARE_OPENGL=1
+  export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 fi
 # studio
 if [ -d ${HOME}/android/studio ]; then
@@ -50,6 +51,8 @@ if [ -L ${HOME}/android/apache-maven ]; then
   #export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
 fi
 if [ -L ${HOME}/android/gradle ]; then
-  PATH=${HOME}/android/gradle/bin:${PATH}
+  export GRADLE_HOME=${HOME}/android/gradle
+  export GRADLE_USER_HOME=${HOME}/.gradle
+  PATH=${GRADLE_HOME}/bin:${PATH}
 fi
 export PATH
