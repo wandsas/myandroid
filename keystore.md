@@ -1,9 +1,9 @@
 
 # Generate key
 keytool -genkey -v \
-    -keystore ~/.crosshatcher.keystore \
+    -keystore ~/.keystore \
     -storetype pkcs12 \
-    -alias k9mail \
+    -alias open-keychain \
     -keyalg RSA \
     -keysize 4096 \
     -sigalg SHA512withRSA \
@@ -11,6 +11,4 @@ keytool -genkey -v \
     -dname "cn=crosshatcher"
 
 # Verify key
-keytool -export-cert \
-    -alias k9mail     \
-    -keystore ~/.crosshatcher.keystore | sha256sum
+keytool -export-cert -alias open-keychain | sha256sum
