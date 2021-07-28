@@ -8,9 +8,9 @@ keytool -genkey -v \
     -keysize 4096 \
     -sigalg SHA512withRSA \
     -validity 10000 \
-    -dname "cn=crosshatcher@onionmail.org"
+    -dname "cn=crosshatcher"
 
 # Verify key
 keytool -export-cert \
     -alias k9mail     \
-    -keystore */.crosshatcher.keystore | sha256sum
+    -keystore ~/.crosshatcher.keystore | sha256sum
