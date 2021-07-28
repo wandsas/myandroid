@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 
 # Generate key
 keytool -genkey -v \
