@@ -26,7 +26,11 @@ PATH=${HOME}/android/depot_tools:${PATH}
 if [ -d ${HOME}/android/studio ]; then
   PATH=${HOME}/android/studio/bin:${PATH}
 fi
-
+# Ant
+if [ -L ${HOME}/android/apache-ant ]; then
+  export ANT_HOME=${HOME}/android/apache-ant
+  PATH=${ANT_HOME}/bin:${PATH}
+fi
 # Maven
 if [ -L ${HOME}/android/apache-maven ]; then
   PATH=${HOME}/android/apache-maven/bin:${PATH}
