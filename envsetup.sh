@@ -43,11 +43,11 @@ fi
 # Android-SDK
 if [ -d $HOME/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
-  export ANDROID_NDK_ROOT=${ANDROID_HOME}/ndk
+  export ANDROID_NDK_ROOT=${ANDROID_HOME}/ndk/21.3.6528147
   PATH=$ANDROID_HOME/cmdline-tools/latest/bin:${PATH}
   PATH=$ANDROID_HOME/platform-tools:${PATH}
   PATH=$ANDROID_HOME/build-tools/30.0.3:${PATH}
-  PATH=$ANDROID_HOME/ndk:${PATH}
+  PATH=$ANDROID_NDK_ROOT:${PATH}
   PATH=$ANDROID_HOME/emulator:${PATH}
 fi
 # Android-emulator
