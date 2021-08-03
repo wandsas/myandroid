@@ -35,14 +35,12 @@ fi
 if [ -L ${HOME}/android/apache-maven ]; then
   PATH=${HOME}/android/apache-maven/bin:${PATH}
   export M2_HOME=${HOME}/android/apache-maven
-  export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000"
 fi
 # Gradle
 if [ -L ${HOME}/android/gradle ]; then
   export GRADLE_HOME=${HOME}/android/gradle
   PATH=${GRADLE_HOME}/bin:${PATH}
   export GRADLE_USER_HOME=${HOME}/.gradle
-  export GRADLE_OPTS=${GRADLE_OPTS}
 fi
 # Android-SDK
 if [ -d $HOME/android/sdk ]; then
