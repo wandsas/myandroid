@@ -1,35 +1,28 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/openjdk-17}
-export JAVA_OPTIONS="-Xms1024m -Xmx2048m -XX:-UsePerfData $JAVA_OPTIONS"
+export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData $JAVA_OPTIONS"
 export ANDROID_HOME=$HOME/android/sdk
 
-sudo apt-get update
-sudo apt-get -y dist-upgrade
-sudo apt-get -y install openjdk-17-jdk curl zip unzip bison flex \
-    libssl-dev xz-utils bash-completion git python3 gpg rsync \
-    diffutils ncurses-base ncurses-bin openssl signify-openbsd \
-    libpulse0 libxcb-xinerama0 make gcc automake pkg-config \
-    autoconf automake libarchive-tools gperf
-pip install protobuf
-
-if [ ! -f $HOME/bin/repo ]; then
-  curl -fLo $HOME/bin/repo --create-dirs \
+# repo
+if [ ! -f ${HOME}/bin/repo ]; then
+  curl -fLo ${HOME}/bin/repo --create-dirs \
     https://storage.googleapis.com/git-repo-downloads/repo 
-  chmod a+x ~/bin/repo
+  chmod a+x ${$HOME}/bin/repo
 fi
-PATH=~/bin:$PATH
+PATH=${HOME}/bin:${PATH}
 
-if [ -d $ANDROID_HOME ]; then
-  echo "Existing android-sdk $ANDROID_HOME found."
+# Check for existing sdk installations and delete them.
+if [ -d ${ANDROID_HOME} ]; then
+  echo "Existing android-sdk ${ANDROID_HOME} found."
   echo "Delete sdk and reinstall it? [Y/n]"
   read YN
   if [ ${YN} == 'n' ]; then
     echo "Exiting."
     exit 1
   elif [ ${YN} == 'Y' ]; then
-     rm -rf $ANDROID_HOME
-     mkdir -p $ANDROID_HOME
+     rm -rf ${ANDROID_HOME}
+     mkdir -p ${ANDROID_HOME}
   else
     echo "Unknown command ${YN}. Aborting."
     exit 1
