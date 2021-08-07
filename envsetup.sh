@@ -30,7 +30,7 @@ fi
 if [ -d ${HOME}/android/studio ]; then
   PATH=${HOME}/android/studio/bin:${PATH}
 fi
-# Android-SDK
+# Android-SDK/NDK
 if [ -d ${HOME}/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
   export ANDROID_NDK_ROOT=${ANDROID_HOME}/ndk-bundle
