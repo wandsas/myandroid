@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/openjdk-17}
-export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData $JAVA_OPTIONS"
-export ANDROID_HOME=$HOME/android/sdk
+export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/java-1.11.0-openjdk-amd64}
+export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
+export ANDROID_HOME=${HOME}/android/sdk
+
+CMDLINE_TOOLS_VERSION="linux-7583922_latest"
+BUILD_TOOLS_VERSION="30.0.3"
 
 # repo
 if [ ! -f ${HOME}/bin/repo ]; then
@@ -12,7 +15,7 @@ if [ ! -f ${HOME}/bin/repo ]; then
 fi
 PATH=${HOME}/bin:${PATH}
 
-# Check for existing sdk installations and delete them.
+# Check for existing sdk installations.
 if [ -d ${ANDROID_HOME} ]; then
   echo "Existing android-sdk ${ANDROID_HOME} found."
   echo "Delete sdk and reinstall it? [Y/n]"
@@ -30,27 +33,27 @@ if [ -d ${ANDROID_HOME} ]; then
 fi
 
 # 1. Install cmdline-tools
-mkdir -p $ANDROID_HOME/cmdline-tools
-cd $ANDROID_HOME/cmdline-tools
-curl -O https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
-echo '7a00faadc0864f78edd8f4908a629a46d622375cbe2e5814e82934aebecdb622 commandlinetools-7302050_latest.zip' | sha256sum -c
-bsdtar xvf commandlinetools-linux-7302050_latest.zip
-rm commandlinetools-linux-7302050_latest.zip
+mkdir -p ${ANDROID_HOME}/cmdline-tools
+cd ${ANDROID_HOME}/cmdline-tools
+curl -O https://dl.google.com/android/repository/commandlinetools-${CMDLINE_TOOLS_VERSION}.zip
+echo '124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf commandlinetools-${CMDLINE_TOOLS_VERSION}.zip' | sha256sum -c
+bsdtar xvf commandlinetools-${CMDLINE_TOOLS_VERSION}.zip
+rm commandlinetools-${CMDLINE_TOOLS_VERSION}.zip
 mv cmdline-tools latest
-PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${PATH}
 
 # 2. Install platform-tools
 sdkmanager platform-tools
-PATH=$ANDROID_HOME/platform-tools:$PATH
+PATH=${ANDROID_HOME}/platform-tools:${PATH}
 
 # 3. Install build-tools
-sdkmanager 'build-tools;30.0.3'
-PATH=$HOME/android/sdk/build-tools/30.0.3:$PATH
+sdkmanager 'build-tools;${BUILD_TOOLS_VERSION}'
+PATH=$HOME/android/sdk/build-tools/${BUILD_TOOLS_VERSION}:${PATH}
 
 # 4. Install ndk-bundle
 sdkmanager ndk-bundle
-PATH=$ANDROID_HOME/ndk-bundle:$PATH
+PATH=${ANDROID_HOME}/ndk-bundle:${PATH}
 export PATH
 
-# Update everything.
+# Update everything
 sdkmanager --update
