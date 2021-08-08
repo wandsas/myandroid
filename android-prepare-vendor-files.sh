@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Be aware, script deletes previous vendor files!
+# Move previous vendor files to vendor/google_devices/${DEVICE}.prev-install-$(timestamp)
 
 DEVICE=bramble
 BUILD_ID=rq3a.210605.005

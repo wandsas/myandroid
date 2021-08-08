@@ -21,15 +21,15 @@ if [ ! -d ${HOME}/android/depot_tools ]; then
 fi
 PATH=${HOME}/android/depot_tools:${PATH}
 # Gradle
-if [ -L ${GRADLE_HOME} ]; then
-  export GRADLE_HOME=${HOME}/android/gradle
-  export GRADLE_USER_HOME=${HOME}/.gradle
-  PATH=${GRADLE_HOME}/bin:${PATH}
-fi
+#if [ -L ${HOME}/android/gradle ]; then
+#  export GRADLE_HOME=${HOME}/android/gradle
+#  export GRADLE_USER_HOME=${HOME}/.gradle
+#  PATH=${GRADLE_HOME}/bin:${PATH}
+#fi
 # Android-Studio
-if [ -d ${HOME}/android/studio ]; then
-  PATH=${HOME}/android/studio/bin:${PATH}
-fi
+#if [ -d ${HOME}/android/studio ]; then
+#  PATH=${HOME}/android/studio/bin:${PATH}
+#fi
 # Android-SDK/NDK
 if [ -d ${HOME}/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
