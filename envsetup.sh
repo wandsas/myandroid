@@ -1,11 +1,11 @@
 [ -f ~/.profile ] && . ~/.profile
 
-jdk8=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-jdk11=/usr/lib/jvm/java-1.11.0-openjdk-amd64
-jdk16=/usr/lib/jvm/java-1.16.0-openjdk-amd64
+jdk8=/home/android/android/jdk1.8.0_301
+jdk16=/home/android/android/jdk-16.0.2
 
-export JAVA_HOME=${jdk11}
+export JAVA_HOME=${jdk16}
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
+PATH=${JAVA_HOME}/bin:${PATH}
 
 # repo
 if [ ! -r ${HOME}/bin/repo ]; then
