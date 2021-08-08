@@ -5,17 +5,19 @@
 DEVICE=bramble
 BUILD_ID=rq3a.210605.005
 
-. ~/android/envsetup.sh
+. ${HOME}/android/envsetup.sh
 
-cd ~/grapheneos
+cd ${HOME}/grapheneos
 source script/envsetup.sh
-
 choosecombo release bramble user
 
-~/grapheneos/vendor/android-prepare-vendor/execute-all.sh \
-    -d $DEVICE -b $BUILD_ID -o ~/grapheneos/vendor/android-prepare-vendor
-mkdir -p ~/grapheneos/vendor/google_devices
-rm -rf ~/grapheneos/vendor/google_devices/$DEVICE
-mv ~/grapheneos/vendor/android-prepare-vendor/$DEVICE/$BUILD_ID/vendor/google_devices/* ~/grapheneos/vendor/google_devices/
+vendor/android-prepare-vendor/execute-all.sh \
+    -d ${DEVICE} \
+    -b ${BUILD_ID} \
+    -o vendor/android-prepare-vendor
 
-
+mkdir -p vendor/google_devices
+if [ -d vendor/google-devices/${DEVICE} ]; then
+  mv vendor/google_devices/${DEVICE} "vendor/google_devices/${DEVICE}.prev-install-$(timestamp)"
+fi
+mv vendor/android-prepare-vendor/${DEVICE}/${BUILD_ID}/vendor/google_devices/* vendor/google_devices/

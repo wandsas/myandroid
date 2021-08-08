@@ -8,4 +8,8 @@ sudo apt-get -y install openjdk-17-jdk curl zip unzip bison flex \
     libpulse0 libxcb-xinerama0 make gcc automake pkg-config \
     autoconf automake libarchive-tools gperf
 
-pip install protobuf
+pip install --upgrade protobuf google
+# When protoc compiler in protobuf fails in vendor/android-prepare-vendor
+# uninstall and reinstall protobuf google 
+# pip uninstall protobuf google
+# pip install protobuf google

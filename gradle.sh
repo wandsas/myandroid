@@ -21,5 +21,7 @@ if [ -n ${GRADLE_HOME} ]; then
 fi
 
 if 
-https://services.gradle.org/distributions/gradle-7.1.1-all.zip
-https://services.gradle.org/distributions/gradle-7.1.1-all.zip.sha256
+cd ${HOME}/android
+curl -LO https://services.gradle.org/distributions/gradle-7.1.1-bin.zip
+curl -LO https://services.gradle.org/distributions/gradle-7.1.1-bin.zip.sha256
+
