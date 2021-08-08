@@ -1,6 +1,7 @@
 [ -f ~/.profile ] && . ~/.profile
 
 jdk8=/home/android/android/jdk1.8.0_301
+jdk16=/home/android/android/jdk-11.0.12
 jdk16=/home/android/android/jdk-16.0.2
 
 export JAVA_HOME=${jdk16}
