@@ -21,12 +21,17 @@ if [ ! -d ${HOME}/android/depot_tools ]; then
     ${HOME}/android/depot_tools
 fi
 PATH=${HOME}/android/depot_tools:${PATH}
+# Ant
+if [ -L ${HOME}/android/apache-ant ]; then
+  export ANT_HOME=${HOME}/android/apache-ant
+  PATH=${ANT_HOME}/bin:${PATH}
+fi
 # Gradle
-#if [ -L ${HOME}/android/gradle ]; then
-#  export GRADLE_HOME=${HOME}/android/gradle
-#  export GRADLE_USER_HOME=${HOME}/.gradle
-#  PATH=${GRADLE_HOME}/bin:${PATH}
-#fi
+if [ -L ${HOME}/android/gradle ]; then
+  export GRADLE_HOME=${HOME}/android/gradle
+  export GRADLE_USER_HOME=${HOME}/.gradle
+  PATH=${GRADLE_HOME}/bin:${PATH}
+fi
 # Android-Studio
 #if [ -d ${HOME}/android/studio ]; then
 #  PATH=${HOME}/android/studio/bin:${PATH}
