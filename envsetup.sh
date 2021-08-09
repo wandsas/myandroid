@@ -1,10 +1,10 @@
 [ -f ~/.profile ] && . ~/.profile
 
 jdk8=/home/android/android/jdk1.8.0_301
-jdk16=/home/android/android/jdk-11.0.12
+jdk11=/home/android/android/jdk-11.0.12
 jdk16=/home/android/android/jdk-16.0.2
 
-export JAVA_HOME=${jdk16}
+export JAVA_HOME=${jdk8}
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
 PATH=${JAVA_HOME}/bin:${PATH}
 
@@ -34,6 +34,7 @@ PATH=${HOME}/android/depot_tools:${PATH}
 # Android-SDK/NDK
 if [ -d ${HOME}/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
+  export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk-bundle
   export ANDROID_NDK_ROOT=${ANDROID_HOME}/ndk-bundle
   PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${PATH}
   PATH=${ANDROID_HOME}/platform-tools:${PATH}
