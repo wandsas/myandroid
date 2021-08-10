@@ -17,7 +17,7 @@ if [ ! -r ${HOME}/bin/repo ]; then
     https://storage.googleapis.com/git-repo-downloads/repo 
   chmod a+x ${HOME}/bin/repo
 fi
-# ~/bin is already in path PATH=${HOME}/bin:${PATH}
+#PATH=${HOME}/bin:${PATH}
 # depot_tools
 if [ ! -d ${HOME}/android/depot_tools ]; then
   git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
