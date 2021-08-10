@@ -1,10 +1,13 @@
 [ -f ~/.profile ] && . ~/.profile
 
-jdk8=/home/android/android/jdk1.8.0_301
-jdk11=/home/android/android/jdk-11.0.12
-jdk16=/home/android/android/jdk-16.0.2
 
-export JAVA_HOME=${jdk8}
+jdk8="/home/android/android/jdk1.8.0_301"
+jdk11="/home/android/android/jdk-11.0.12"
+jdk16="/home/android/android/jdk-16.0.2"
+openjdk8="/home/android/android/openlogic-openjdk-8u292-b10-linux-x64"
+openjdk11="/home/android/android/openlogic-openjdk-11.0.11+9-linux-x64"
+
+export JAVA_HOME="${openjdk11}"
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
 PATH=${JAVA_HOME}/bin:${PATH}
 
@@ -14,7 +17,7 @@ if [ ! -r ${HOME}/bin/repo ]; then
     https://storage.googleapis.com/git-repo-downloads/repo 
   chmod a+x ${HOME}/bin/repo
 fi
-PATH=${HOME}/bin:${PATH}
+# ~/bin is already in path PATH=${HOME}/bin:${PATH}
 # depot_tools
 if [ ! -d ${HOME}/android/depot_tools ]; then
   git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
