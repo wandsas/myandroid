@@ -4,7 +4,7 @@
 openjdk8="/home/android/android/openlogic-openjdk-8u292-b10-linux-x64"
 openjdk11="/home/android/android/openlogic-openjdk-11.0.11+9-linux-x64"
 
-export JAVA_HOME="${openjdk8}"
+export JAVA_HOME="${openjdk11}"
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
 PATH=${JAVA_HOME}/bin:${PATH}
 
