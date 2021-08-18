@@ -39,8 +39,9 @@ fi
 # Android-SDK/NDK
 if [ -d ${HOME}/android/sdk ]; then
   export ANDROID_HOME=${HOME}/android/sdk
+  export ANDROID_SDK_ROOT=${ANDROID_HOME}
   export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk-bundle
-  export ANDROID_NDK_ROOT=${ANDROID_HOME}/ndk-bundle
+  export ANDROID_NDK_ROOT=${ANDROID_NDK_HOME}
   PATH=${ANDROID_HOME}/cmdline-tools/latest/bin:${PATH}
   PATH=${ANDROID_HOME}/platform-tools:${PATH}
   PATH=${ANDROID_HOME}/build-tools/30.0.3:${PATH}
