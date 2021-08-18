@@ -1,5 +1,6 @@
 [ -f ~/.profile ] && . ~/.profile
 
+export GIT_SSH=ssh
 
 openjdk8="/home/android/android/openlogic-openjdk-8u292-b10-linux-x64"
 openjdk11="/home/android/android/openlogic-openjdk-11.0.11+9-linux-x64"
