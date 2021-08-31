@@ -2,7 +2,7 @@
 
 export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/java-1.11.0-openjdk-amd64}
 export JAVA_OPTIONS="-Xms2048m -Xmx4096m -XX:-UsePerfData ${JAVA_OPTIONS}"
-export ANDROID_HOME=${HOME}/java/sdk
+export ANDROID_HOME=${HOME}/android/sdk
 
 CMDLINE_TOOLS_VERSION="linux-7583922_latest"
 BUILD_TOOLS_VERSION="30.0.3"
@@ -47,7 +47,7 @@ sdkmanager platform-tools
 PATH=${ANDROID_HOME}/platform-tools:${PATH}
 
 # 3. Install build-tools
-sdkmanager 'build-tools;${BUILD_TOOLS_VERSION}'
+sdkmanager "build-tools;${BUILD_TOOLS_VERSION}"
 PATH=$HOME/android/sdk/build-tools/${BUILD_TOOLS_VERSION}:${PATH}
 
 # 4. Install ndk-bundle
